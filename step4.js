@@ -5,7 +5,7 @@ var requestOptions = {
   path: '/http-examples/step1.html'
 };
 
-function getAndPrintHTML (options, callback) {
+function getHTML (options, callback) {
   var emptyStr = '';
   https.get(options, function (response) {
     response.setEncoding('utf8');
@@ -17,4 +17,4 @@ function printHTML (html) {
   console.log(html);
 }
 
-getAndPrintHTML(requestOptions, printHTML);
+getHTML(requestOptions, printHTML)
