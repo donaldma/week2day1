@@ -9,14 +9,9 @@ function getAndPrintHTML (options) {
   var emptyStr = '';
   https.get(options, function (response) {
     response.setEncoding('utf8');
-    response.on('data', function(data){
-      emptyStr += data;
-    });
-    response.on('end', function() {
-      console.log('Response stream complete.' + emptyStr);
-    });
+    response.on('data', data => emptyStr += data);
+    response.on('end', () => console.log('Response stream complete.' + emptyStr));
   });
 }
-
 
 getAndPrintHTML(requestOptions);
